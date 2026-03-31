@@ -10,7 +10,7 @@ const initialState = {
 
 export const clearwishList = createAsyncThunk("wishList/clearWishlist", async (token) => {
   try {
-    let {data} = await axios.put(`${process.env.REACT_APP_API_URL}api/v1/wishlist/clearWishlist`,{}, {
+    let {data} = await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/wishlist/clearWishlist`,{}, {
       headers : {
         authorization : `Bearer ${token}`,
       }
@@ -25,7 +25,7 @@ export const fetchWishListItems = createAsyncThunk(
   "wishlist/fetchWishListItems",
   async (token) => {
     try {
-      let res = await axios.get(`${process.env.REACT_APP_API_URL}api/v1/wishlist`, {
+      let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/wishlist`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -42,7 +42,7 @@ export const removeFromWishList = createAsyncThunk(
   async ({ productId, token }) => {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/wishlist/delete/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/wishlist/delete/${productId}`,
         {},
         {
           headers: {
@@ -62,7 +62,7 @@ export const addToWishList = createAsyncThunk(
   async ({ token, product }) => {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/wishlist/addToWishlist`,
+        `${process.env.REACT_APP_API_URL}/api/v1/wishlist/addToWishlist`,
         product,
         {
           headers: {

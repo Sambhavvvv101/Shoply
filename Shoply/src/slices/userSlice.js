@@ -14,13 +14,13 @@ const initialState = {
 export const createUser = createAsyncThunk("user/createUser", async (user) => {
   try {
     let res = await axios.post(
-      `${process.env.REACT_APP_API_URL}api/v1/user/register`,
+      `${process.env.REACT_APP_API_URL}/api/v1/user/register`,
       user
     );
     if (res.status === 201) {
       let token = res.data.token;
       let response = await axios.post(
-        `${process.env.REACT_APP_API_URL}api/v1/cart/createCart`,
+        `${process.env.REACT_APP_API_URL}/api/v1/cart/createCart`,
         {},
         {
           headers: {
@@ -45,7 +45,7 @@ export const createUser = createAsyncThunk("user/createUser", async (user) => {
 export const loginUser = createAsyncThunk("user/loginUser", async (user) => {
   try {
     let res = await axios.post(
-      `${process.env.REACT_APP_API_URL}api/v1/user/login`,
+      `${process.env.REACT_APP_API_URL}/api/v1/user/login`,
       user
     );
     return res.data;
@@ -58,7 +58,7 @@ export const fetchAllUsers = createAsyncThunk(
   async ({ token }) => {
     try {
       let res = await axios.get(
-        `${process.env.REACT_APP_API_URL}api/v1/user/allUser`,
+        `${process.env.REACT_APP_API_URL}/api/v1/user/allUser`,
         {
           headers: {
             authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ export const updateAdmin = createAsyncThunk(
   async ({ token, userId }) => {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/user/updateAdmin/${userId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/user/updateAdmin/${userId}`,
         {},
         {
           headers: {
@@ -97,7 +97,7 @@ export const deleteUser = createAsyncThunk(
   async ({ token, userId }) => {
     try {
       let res = await axios.delete(
-        `${process.env.REACT_APP_API_URL}api/v1/user/deleteUser/${userId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/user/deleteUser/${userId}`,
         {
           headers: {
             authorization: `Bearer ${token}`,

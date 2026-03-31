@@ -32,7 +32,7 @@ export const deleteProduct = createAsyncThunk(
   async ({ token, productId }) => {
     try {
       let { data } = await axios.delete(
-        `${process.env.REACT_APP_API_URL}api/v1/products/delete/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/products/delete/${productId}`,
         {
           headers: {
             authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ export const updateProduct = createAsyncThunk(
   async ({ formData, token, productId }) => {
     try {
       let { data } = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/products/update/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/products/update/${productId}`,
         formData,
         {
           headers: {
@@ -71,7 +71,7 @@ export const addProduct = createAsyncThunk(
   async ({ formData, token }) => {
     try {
       let { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}api/v1/products/create`,
+        `${process.env.REACT_APP_API_URL}/api/v1/products/create`,
         formData,
         {
           headers: {
@@ -229,7 +229,7 @@ export default productSlice.reducer;
 
 // export const deleteProduct = createAsyncThunk("products/deleteProduct", async ({token, productId}) => {
 //     try {
-//         let {data} = await axios.delete(`${process.env.REACT_APP_API_URL}api/v1/products/delete/${productId}`, {
+//         let {data} = await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/products/delete/${productId}`, {
 //             headers : {
 //                 authorization : `Bearer ${token}`
 //             }
@@ -242,7 +242,7 @@ export default productSlice.reducer;
 
 // export const updateProduct = createAsyncThunk("products/updateProduct", async ({formData, token, productId}) => {
 //     try {
-//         let {data} = await axios.put(`${process.env.REACT_APP_API_URL}api/v1/products/update/${productId}`, formData , {
+//         let {data} = await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/products/update/${productId}`, formData , {
 //             headers : {
 //                 authorization : `Bearer ${token}`
 //             }
@@ -255,7 +255,7 @@ export default productSlice.reducer;
 
 // export const addProduct = createAsyncThunk("products/addProduct", async ({formData, token}) => {
 //     try {
-//         let {data} = await axios.post(`${process.env.REACT_APP_API_URL}api/v1/products/create`, formData , {
+//         let {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/products/create`, formData , {
 //             headers : {
 //                 authorization : `Bearer ${token}`
 //             }

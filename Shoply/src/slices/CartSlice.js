@@ -18,7 +18,7 @@ const initialState = {
 
 export const clearCart = createAsyncThunk("cart/clearCart", async (token) => {
   try {
-    let {data} = await axios.put(`${process.env.REACT_APP_API_URL}api/v1/cart/clearCart`,{}, {
+    let {data} = await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/cart/clearCart`,{}, {
       headers : {
         authorization : `Bearer ${token}`,
       }
@@ -33,7 +33,7 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (token) => {
     try {
-      let res = await axios.get(`${process.env.REACT_APP_API_URL}api/v1/cart`, {
+      let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/cart`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -50,7 +50,7 @@ export const removeFromCart = createAsyncThunk(
   async ({ productId, token }) => {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/cart/delete/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/cart/delete/${productId}`,
         {},
         {
           headers: {
@@ -70,7 +70,7 @@ export const addToCart = createAsyncThunk(
   async ({ token, product }) => {
     try {
       let res = await axios.put(
-        `${process.env.REACT_APP_API_URL}api/v1/cart/addToCart`,
+        `${process.env.REACT_APP_API_URL}/api/v1/cart/addToCart`,
         product,
         {
           headers: {

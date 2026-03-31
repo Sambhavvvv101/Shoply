@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchSingleProduct = createAsyncThunk("product/fetchSingleProduct", async (_id) => {
     try {
-        let {data} = await axios(`${process.env.REACT_APP_API_URL}api/v1/products/${_id}`);
+        let {data} = await axios(`${process.env.REACT_APP_API_URL}/api/v1/products/${_id}`);
         return data;
     } catch (error) {
         throw new Error(error.response.data.message)
@@ -18,7 +18,7 @@ export const fetchSingleProduct = createAsyncThunk("product/fetchSingleProduct",
 
 export const createReview = createAsyncThunk('product/createReview', async ({productId, message, rating, token}) => {
     try {
-        let {data }= await axios.put(`${process.env.REACT_APP_API_URL}api/v1/products/addReview/${productId}`, {message, rating}, {
+        let {data }= await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/products/addReview/${productId}`, {message, rating}, {
             headers : {
                 authorization : `Bearer ${token}`
             }

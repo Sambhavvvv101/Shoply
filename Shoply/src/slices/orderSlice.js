@@ -10,7 +10,7 @@ const initialState = {
 
 export const placeOrder = createAsyncThunk("orders/placeOrder", async ({user, items, shipping}) => {
     try {
-        let {data} = await axios.post(`${process.env.REACT_APP_API_URL}api/v1/order/create`, {items, shipping}, {
+        let {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/order/create`, {items, shipping}, {
             headers : {
                 authorization : `Bearer ${user.token}`
             }
@@ -25,7 +25,7 @@ export const placeOrder = createAsyncThunk("orders/placeOrder", async ({user, it
 
 export const fetchAllOrders = createAsyncThunk("orders/fetchAllOrders", async (token) => {
     try {
-        let {data} = await axios.get(`${process.env.REACT_APP_API_URL}api/v1/order/`, {
+        let {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/order/`, {
             headers :{
                 authorization : `Bearer ${token}`
             }
