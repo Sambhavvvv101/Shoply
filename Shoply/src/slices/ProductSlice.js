@@ -18,7 +18,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       let { data } = await axios(
-        `${process.env.REACT_APP_API_URL}api/v1/products/`
+        `${process.env.REACT_APP_API_URL}/api/v1/products/`
       );
       return data;
     } catch (error) {
@@ -220,7 +220,7 @@ export default productSlice.reducer;
 
 // export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
 //     try {
-//         let {data} = await axios(`${process.env.REACT_APP_API_URL}api/v1/products/`);
+//         let {data} = await axios(`${process.env.REACT_APP_API_URL}/api/v1/products/`);
 //         return data;
 //     } catch (error) {
 //         throw new Error(error.response.data.message)
